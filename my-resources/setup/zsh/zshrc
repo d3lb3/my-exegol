@@ -1,0 +1,47 @@
+# Config file dedicated to the user's personal zshrc profile shared between all exegol containers.
+# This file is sourced in /root/.zshrc file.
+# Alternatively, the /opt/my-resources/setup/load_user_setup.sh file can be used to operate the change once (instead of sourcing a file for each zsh instance)
+
+### fixes
+
+# color correction for zsh-syntax-highlighting
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#626262'
+
+# This speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+
+# fix alias not working
+alias l='ll'
+
+### customizations
+
+# commands to always run in background
+neo4j start >/dev/null 2>&1
+
+# custom shell prompt
+precmd() { print "" }
+NEWLINE=$'\n'
+update_prompt() {
+  PROMPT='%{$fg[white]%}%{%G┌%}%{%G─%}%{%G─%}[%{$fg[red]%}%~%{$fg[white]%}]${NEWLINE}%{%G└%}%{%G─%}%{%G╼%}%{$fg[reset_color]%} '
+  RPROMPT='%{$fg[green]%}%D{%b %d, %Y %H:%M:%S}%{$reset_color%}'
+}
+
+add-zsh-hook precmd update_prompt
+
+# setup environment variables
+source /workspace/.env
+WORKDIR=/workspace
+TARGETS=/workspace/targets
+ATTACKS=/workspace/attacks
+LOOT=/workspace/loot
+

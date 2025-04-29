@@ -1,0 +1,3 @@
+[submodule "Exegol-images"]
+	path = Exegol-images
+	url = https://github.com/ThePorgs/Exegol-images
