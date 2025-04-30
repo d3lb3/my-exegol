@@ -116,6 +116,7 @@ function package_custom() {
     install_searchsploit
     install_seclists
     install_arsenal_custom
+    install_ipinfo
     add_kali_repository
 
     end_time=$(date +%s)

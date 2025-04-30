@@ -23,8 +23,10 @@ WORKDIR /root/sources/install
 
 RUN echo "${TAG}-${VERSION}" > /opt/.exegol_version
 RUN chmod +x entrypoint.sh
+
 RUN ./entrypoint.sh package_base
-RUN ./entrypoint.sh package_base
+#RUN bash -c "source /root/sources/install/package_base_custom.sh; package_base"
+RUN bash -c "source /root/sources/install/package_custom.sh; package_custom"
 
 WORKDIR /workspace
 
