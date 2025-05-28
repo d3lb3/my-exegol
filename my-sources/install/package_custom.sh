@@ -37,6 +37,10 @@ function install_arsenal_custom() {
     rm -rf arsenal
 }
 
+function install_porgs_impacket() {
+    pipx install git+https://github.com/ThePorgs/impacket
+}
+
 function add_kali_repository() {
     echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | sudo tee /etc/apt/sources.list.d/kali.list
     wget -q -O - https://archive.kali.org/archive-key.asc | sudo apt-key add -
@@ -66,7 +70,7 @@ function package_custom() {
     install_bloodhound
     install_cypheroth
     install_mitm6_pip
-    install_impacket
+    install_porgs_impacket
     install_powershell
     install_krbrelayx
     #install_pypykatz
