@@ -44,6 +44,9 @@ mkdir /workspace/targets
 mkdir /workspace/targets/nmap
 mkdir /workspace/targets/bh
 
+# fix arsenal
+echo "dev.tty.legacy_tiocsti=1" >> /etc/sysctl.conf
+
 # fix user rights
 find /workspace/ -type d -exec chmod 770 {} \; -exec chmod g+s {} \;
 find /workspace/ -type f -exec chmod 660 {} \;
