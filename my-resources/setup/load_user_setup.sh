@@ -25,7 +25,9 @@ then
 fi
 echo "DOMAIN=''" >> $FILE
 echo "DC_IP=''" >> $FILE
+echo "DC_HOST=''" >> $FILE
 echo "DC2_IP=''" >> $FILE
+echo "DC2_HOST=''" >> $FILE
 echo "USER=''" >> $FILE
 echo "PASSWORD=''" >> $FILE
 echo "USER_ADM=''" >> $FILE
@@ -46,6 +48,7 @@ mkdir /workspace/targets/bh
 
 # fix arsenal
 echo "dev.tty.legacy_tiocsti=1" >> /etc/sysctl.conf
+echo '{"user": "$USER", "password": "$PASSWORD", "dc_fqdn": "$DC_HOST", "ip": "$DC", "dc_ip": "$DC"}' > ~/.arsenal.json
 
 # fix user rights
 find /workspace/ -type d -exec chmod 770 {} \; -exec chmod g+s {} \;
