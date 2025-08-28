@@ -20,13 +20,7 @@ pastefinish() {
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
-# fix alias not working
-alias l='ll'
-
 ### customizations
-
-# commands to always run in background
-neo4j start >/dev/null 2>&1
 
 # custom shell prompt
 precmd() { print "" }
@@ -40,7 +34,8 @@ add-zsh-hook precmd update_prompt
 
 # setup environment variables
 source /workspace/.env
-WORKDIR=/workspace
+WORKSPACE=/workspace
+WS=/workspace
 TARGETS=/workspace/targets
 ATTACKS=/workspace/attacks
 LOOT=/workspace/loot

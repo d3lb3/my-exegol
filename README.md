@@ -17,12 +17,25 @@ exegol install --build-path $PWD/Exegol-images custom custom
 ###  Add my custom resources to Exegol
 
 ```
-sudo cp -r my-resources/. ~/.exegol/my-resources/
+cp -r my-resources/. ~/.exegol/my-resources/
 ```
 
 ### Create a new container
 
 ```
-exegol start my-exegol --hostname jbedel-ocd -cwd -fs -l
+exegol start default -fs -cwd -l --hostname my-host
 ```
 
+### Setup Tilix profile
+
+Create Tilix Profile
+
+```
+sudo dconf load /com/gexperts/Tilix/ < my-terminal/tilix.dconf
+```
+
+Add shortcut
+
+```
+cp my-terminal/exegol.desktop ~/.local/share/applications/
+```

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Exegol
+Comment=Launch Tilix with Exegol profile (root)
+Exec=pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY tilix --profile="Exegol" --maximize
+Icon=tilix
+Terminal=false
+Type=Application
+Categories=System;TerminalEmulator;

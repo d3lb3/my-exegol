@@ -1,0 +1,46 @@
+[/]
+new-instance-mode='new-session'
+prompt-on-close=true
+prompt-on-new-session=true
+quake-specific-monitor=0
+terminal-title-style='none'
+theme-variant='dark'
+window-save-state=false
+window-style='disable-csd'
+
+[profiles]
+list=['2b7c4080-0ddd-46c5-8f23-563fd3ba789d', 'e4242245-3043-439a-aca1-49a1a7a4f253']
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-color='#263238'
+badge-color='#AC7EA8'
+badge-color-set=false
+bold-color-set=false
+cursor-background-color='#A1B0B8'
+cursor-colors-set=false
+cursor-foreground-color='#BDC3C7'
+cursor-shape='ibeam'
+font='MesloLGS NF 12'
+foreground-color='#A1B0B8'
+highlight-colors-set=false
+palette=['#252525', '#FF5252', '#C3D82C', '#FFC135', '#42A5F5', '#D81B60', '#00ACC1', '#F5F5F5', '#708284', '#FF5252', '#C3D82C', '#FFC135', '#42A5F5', '#D81B60', '#00ACC1', '#F5F5F5']
+shortcut='disabled'
+use-system-font=false
+use-theme-colors=false
+visible-name='Par défaut'
+
+[profiles/e4242245-3043-439a-aca1-49a1a7a4f253]
+background-color='#762423'
+badge-color-set=false
+bold-color-set=false
+cursor-colors-set=false
+custom-command='sudo exegol start'
+exit-action='close'
+foreground-color='#FFFFFF'
+highlight-colors-set=false
+login-shell=false
+palette=['#000000', '#D62E4E', '#71BE6B', '#BEB86B', '#489BEE', '#E979D7', '#6BBEB8', '#D6D6D6', '#262626', '#E02553', '#AFF08C', '#DFDDB7', '#65AAF1', '#DDB7DF', '#B7DFDD', '#FFFFFF']
+shortcut='<Primary><Alt>e'
+use-custom-command=true
+use-theme-colors=false
+visible-name='Pentest'

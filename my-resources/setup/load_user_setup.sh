@@ -14,6 +14,9 @@ LAUNCH_DIRECTORY="$PWD"
 # remove Exegol history
 echo -n > ~/.zsh_history
 
+# nxc passwords
+sed -i 's/^audit_mode = .*/audit_mode = \*/' /root/.nxc/nxc.conf
+
 # pentest environment variables source
 FILE=/workspace/.env
 if [ ! -f $FILE ]
@@ -21,41 +24,31 @@ then
     touch $FILE
 fi
 echo "DOMAIN=''" >> $FILE
-echo "DC=''" >> $FILE
-echo "DC2=''" >> $FILE
+echo "DC_IP=''" >> $FILE
+echo "DC2_IP=''" >> $FILE
 echo "USER=''" >> $FILE
 echo "PASSWORD=''" >> $FILE
 echo "USER_ADM=''" >> $FILE
 echo "PASSWORD_ADM=''" >> $FILE
+echo "ATTACKER_IP=''" >> $FILE
 
 # build internal pentest tree
 mkdir /workspace/attacks
-mkdir /workspace/attacks/adcs
-mkdir /workspace/attacks/crack
-mkdir /workspace/attacks/cve
-mkdir /workspace/attacks/acl
-mkdir /workspace/attacks/mitm
-mkdir /workspace/attacks/postex
-mkdir /workspace/attacks/relay
-mkdir /workspace/attacks/snowball
-mkdir /workspace/attacks/spray
-mkdir /workspace/attacks/webdav
-mkdir /workspace/enumeration
-mkdir /workspace/enumeration/bloodhound
-mkdir /workspace/enumeration/nmap
-mkdir /workspace/enumeration/pingcastle
-mkdir /workspace/enumeration/nessus
 mkdir /workspace/loot
-mkdir /workspace/loot/files
-mkdir /workspace/loot/credz
 mkdir /workspace/notes
 touch /workspace/notes/todo.md
 touch /workspace/notes/comptes.md
 touch /workspace/notes/questions.md
-touch /workspace/notes/postex.md
 mkdir /workspace/screenshots
 mkdir /workspace/targets
+mkdir /workspace/targets/nmap
+mkdir /workspace/targets/bh
 
+# fix user rights
 find /workspace/ -type d -exec chmod 770 {} \; -exec chmod g+s {} \;
 find /workspace/ -type f -exec chmod 660 {} \;
 
+# additional setup
+echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | sudo tee /etc/apt/sources.list.d/kali.list
+wget -q -O - https://archive.kali.org/archive-key.asc | sudo apt-key add -
+sudo apt update
