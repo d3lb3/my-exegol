@@ -11,9 +11,6 @@
 # keep track of the current directory as we will cd to install some tools
 LAUNCH_DIRECTORY="$PWD"
 
-# remove Exegol history
-echo -n > ~/.zsh_history
-
 # nxc passwords
 sed -i 's/^audit_mode = .*/audit_mode = \*/' /root/.nxc/nxc.conf
 
